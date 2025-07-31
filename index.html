@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Goa Explorer</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
+
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />  -->
+
+</head>
+<body>
+
+<!-- Header -->
+<header id="main-header">
+  <a href="#hero" class="logo">Goa Explorer</a>
+  <nav>
+    <ul class="nav-links">
+      <li><a href="#attractions">Attractions</a></li>
+      <li><a href="#itinerary">Itinerary</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- Hero Section -->
+<section id="hero" class="hero">
+  <video autoplay muted loop playsinline class="hero-bg-video">
+    <!-- <source src="/project-folder/video/v3.mp4" type="video/mp4" /> -->
+    Your browser does not support the video tag.
+  </video>
+  <div class="overlay"></div>
+  <div class="hero-content">
+    <h1>Discover the Beauty of Goa</h1>
+    <p>Your journey to sun, sand, and serenity starts here.</p>
+    <a href="#attractions" class="cta-button">Explore Now</a>
+  </div>
+</section>
+
+<!-- Top Attractions Section -->
+<section id="attractions" class="attractions-section">
+  <h2>Top Attractions in Goa</h2>
+  <p class="section-subtitle">
+    Explore the most famous sights that define Goa’s charm – from golden beaches to ancient forts and vibrant culture.
+  </p>
+  <div class="filter-buttons">
+    <button onclick="renderAttractions('All')">All</button>
+    <button onclick="renderAttractions('Beach')">🏖️ Beach</button>
+    <button onclick="renderAttractions('History')">🏰 Historic</button>
+    <button onclick="renderAttractions('Nature')">🌿 Nature</button>
+    <button onclick="renderAttractions('Food')">🍛 Food</button>
+  </div>
+  <div class="attractions-grid"></div>
+  <div class="attractions-description">
+    <p>
+      Goa is a land of sun, sea, and spirituality. Whether you're wandering through spice plantations, marveling at colonial architecture, or relaxing on beaches like Palolem and Baga, there's something for everyone.
+    </p>
+  </div>
+  <a href="#gallery" class="explore-more-btn">View Photo Gallery →</a>
+</section>
+
+<!-- Itinerary Planner Section -->
+<section id="itinerary" class="itinerary-section">
+  <h2>Plan Your Dream Goa Trip</h2>
+  <p class="section-subtitle">Select your preferences and we’ll suggest an itinerary</p>
+  <form id="itinerary-form" class="form-box">
+    <label for="duration">Trip Duration:</label>
+    <select id="duration" required>
+      <option value="" disabled selected>Select</option>
+      <option value="3">3 Days</option>
+      <option value="5">5 Days</option>
+    </select>
+    <div class="interest-options">
+      <label>
+        <input type="checkbox" value="beaches" />
+        <img src="https://img.icons8.com/ios-filled/50/beach.png" alt="Beaches" />Beaches
+      </label>
+      <label>
+        <input type="checkbox" value="culture" />
+        <img src="https://img.icons8.com/ios-filled/50/temple.png" alt="Culture" />Culture
+      </label>
+      <label>
+        <input type="checkbox" value="food" />
+        <img src="https://img.icons8.com/ios-filled/50/meal.png" alt="Food" />Food
+      </label>
+    </div>
+    <button type="submit">Generate Itinerary</button>
+  </form>
+  <div id="itinerary-result" class="itinerary-output"></div>
+</section>
+
+<!-- Photo Gallery Section -->
+<section id="gallery" class="gallery-section">
+  <h2>Goa Photo Gallery</h2>
+  <p class="section-subtitle">A glimpse into Goa’s breathtaking beauty</p>
+  <div class="gallery-grid">
+
+    <figure class="gallery-item">
+      <img src="images/Photos_Gallery/baga_beach.jpg" alt="Baga Beach" />
+      <figcaption>Baga Beach</figcaption>
+    </figure>
+
+    <figure class="gallery-item">
+      <img src="images/Photos_Gallery/anjuna_beach.jpg" alt="Anjuna Beach" />
+      <figcaption>Anjuna Beach</figcaption>
+    </figure>
+
+    <figure class="gallery-item">
+      <img src="images/Photos_Gallery/dudhsagar.jpg" alt="Dudhsagar Falls" />
+      <figcaption>Dudhsagar Falls</figcaption>
+    </figure>
+
+    <figure class="gallery-item">
+      <img src="images/Photos_Gallery/bom_church.jpg" alt="Bom Jesus Church" />
+      <figcaption>Bom Jesus Church</figcaption>
+    </figure>
+
+    <figure class="gallery-item">
+      <img src="images/Photos_Gallery/palolem_beach.jpg" alt="Palolem Beach" />
+      <figcaption>Palolem Beach</figcaption>
+    </figure>
+
+    <figure class="gallery-item">
+      <img src="images/Photos_Gallery/anjuna_market.jpg" alt="Anjuna Market" />
+      <figcaption>Anjuna Market</figcaption>
+    </figure>
+
+    <figure class="gallery-item">
+      <img src="images/Photos_Gallery/goa_musem.jpg" alt="Goa Museum" />
+      <figcaption>Goa Museum</figcaption>
+    </figure>
+
+    <figure class="gallery-item">
+      <img src="images/Photos_Gallery/goan_cuisine.jpg" alt="Goan Cuisine" />
+      <figcaption>Goan Cuisine</figcaption>
+    </figure>
+
+  </div>
+</section>
+
+
+<!-- Testimonials Section -->
+<section id="testimonials" class="testimonials-section">
+  <h2>What Our Visitors Say</h2>
+  <div class="testimonial-cards">
+    <div class="testimonial">
+      <p>“Goa was unforgettable. The beaches, food, and vibes were magical!”</p>
+      <h4>- Rhea, Mumbai</h4>
+    </div>
+    <div class="testimonial">
+      <p>“From the forts to the waterfalls, everything was breathtaking.”</p>
+      <h4>- Aarav, Delhi</h4>
+    </div>
+    <div class="testimonial">
+      <p>“I planned my entire trip using this website—so smooth and helpful!”</p>
+      <h4>- Sneha, Bengaluru</h4>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ Section -->
+<section id="faq" class="faq-section">
+  <h2>Frequently Asked Questions</h2>
+  <div class="faq-items">
+    <details>
+      <summary>🌤️ What’s the best time to visit Goa?</summary>
+      <p>November to February is ideal for pleasant weather, beach parties, and festivals.</p>
+    </details>
+    <details>
+      <summary>🛏️ Are there budget-friendly places to stay?</summary>
+      <p>Yes! Hostels, homestays, and guesthouses are widely available for travelers.</p>
+    </details>
+    <details>
+      <summary>🚗 Is it safe to rent scooters in Goa?</summary>
+      <p>Yes, renting scooters is common. Always wear helmets and carry a valid license.</p>
+    </details>
+    <details>
+      <summary>🍽️ What local dishes should I try?</summary>
+      <p>Must-try dishes include Fish Curry Rice, Pork Vindaloo, Bebinca, and Xacuti.</p>
+    </details>
+  </div>
+</section>
+
+
+
+<!-- Contact Section -->
+<section id="contact" class="contact-section">
+  <form id="contact-form" class="contact-form">
+    <div class="input-group">
+      <span>👤</span>
+      <input type="text" id="name" placeholder="Your Name" required />
+    </div>
+  
+    <div class="input-group">
+      <span>📧</span>
+      <input type="email" id="email" placeholder="Your Email" required />
+    </div>
+  
+    <div class="input-group">
+      <span>💬</span>
+      <textarea id="message" rows="5" placeholder="Your Message" required></textarea>
+    </div>
+  
+    <button type="submit">Send Message</button>
+    <p id="form-message" class="form-message"></p>
+  </form>
+  
+</section>
+
+
+
+
+<!-- Footer -->
+<footer class="site-footer">
+  <div class="footer-content">
+    <div class="footer-about">
+      <h3>Goa Explorer</h3>
+      <p>Discover the best of Goa with curated itineraries, attractions, and tips.</p>
+    </div>
+
+    <div class="footer-links">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#attractions">Attractions</a></li>
+        <li><a href="#itinerary">Itinerary</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-social">
+      <h4>Follow Us</h4>
+      <div class="social-icons">
+        <a href="#"><img src="https://img.icons8.com/ios-filled/25/facebook-new.png" alt="Facebook" /></a>
+        <a href="#"><img src="https://img.icons8.com/ios-filled/25/instagram-new.png" alt="Instagram" /></a>
+        <a href="#"><img src="https://img.icons8.com/ios-filled/25/twitterx.png" alt="Twitter" /></a>
+      </div>
+    </div>
+  </div>
+
+  <p class="footer-bottom">© 2025 Goa Explorer. All rights reserved.</p>
+</footer>
+
+
+
+
+<script src="script.js" defer></script>
+
+
+</body>
+</html>
