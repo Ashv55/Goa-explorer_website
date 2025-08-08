@@ -89,7 +89,7 @@ header.scrolled {
   text-align: center;
   color: white;
   padding: 0 2rem;
-  background: url('/project-folder/images/beach1.jpg') no-repeat center center/cover;
+  background: url('/images/beach1.jpg') no-repeat center center/cover;
 }
 
 /* 🎥 Background Video */
@@ -177,10 +177,37 @@ header.scrolled {
 
 
 /* Attractions Section */
+
+
+
+/* Search bar styling */
+.attractions-search {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.attractions-search input {
+  width: 80%;
+  max-width: 400px;
+  padding: 0.7rem 1rem;
+  font-size: 1rem;
+  border-radius: 25px;
+  border: 1px solid #ccc;
+  outline: none;
+  transition: border 0.3s, box-shadow 0.3s;
+}
+
+.attractions-search input:focus {
+  border-color: #008080;
+  box-shadow: 0 0 8px rgba(0, 128, 128, 0.3);
+}
+
+
+
 .attractions-section {
   position: relative;
   padding: 6rem 2rem;
-  background: url('/project-folder/images/attreaction.jpg') no-repeat center center/cover;
+  background: url('images/attreaction.jpg') no-repeat center center/cover;
   text-align: center;
   color: white;
   z-index: 1;
@@ -343,7 +370,7 @@ header.scrolled {
 /* Itinerary Section */
 .itinerary-section {
   padding: 5rem 2rem;
-  background: url('/project-folder/images/basilica_of_bom_jesus.jpg') no-repeat center center/cover;  
+  background: url('images/basilica_of_bom_jesus.jpg') no-repeat center center/cover;  
   text-align: center;
 }
 .itinerary-section h2 {
@@ -443,7 +470,7 @@ header.scrolled {
 /* Photo Gallery Section - Modern Design */
 .gallery-section {
   padding: 4rem 2rem;
-  background: url('/project-folder/images/Photos_Gallery/background.jpg') no-repeat center center/cover;
+  background: url('images/Photos_Gallery/background.jpg') no-repeat center center/cover;
   text-align: center;
 }
 .gallery-section h2 {

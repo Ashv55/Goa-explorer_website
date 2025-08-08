@@ -1,26 +1,19 @@
-
-// header scroll 
+// Header scroll effect
 window.addEventListener("scroll", () => {
   const header = document.querySelector("header");
-
   if (window.scrollY > 50) {
-    header.classList.add("scrolled");  // Applies new style
+    header.classList.add("scrolled");
   } else {
-    header.classList.remove("scrolled");  // Reverts back
+    header.classList.remove("scrolled");
   }
 });
-
-
-
 
 // Always scroll to top on refresh
 window.onbeforeunload = function () {
   window.scrollTo(0, 0);
 };
 
-
-
-
+// Attractions data
 const attractions = [
   {
     name: "Baga Beach",
@@ -54,11 +47,20 @@ const attractions = [
 
 const grid = document.querySelector(".attractions-grid");
 
-// Render attractions
+// Render attractions function
 function renderAttractions(filter = "All") {
+  const searchQuery = document.getElementById("attractionSearch")?.value.toLowerCase() || "";
+
   grid.innerHTML = "";
 
-  const filtered = filter === "All" ? attractions : attractions.filter(item => item.category === filter);
+  const filtered = attractions.filter(item => {
+    const matchesCategory = filter === "All" || item.category === filter;
+    const matchesSearch =
+      item.name.toLowerCase().includes(searchQuery) ||
+      item.shortDesc.toLowerCase().includes(searchQuery) ||
+      item.fullDesc.toLowerCase().includes(searchQuery);
+    return matchesCategory && matchesSearch;
+  });
 
   filtered.forEach(attraction => {
     const card = document.createElement("div");
@@ -77,6 +79,7 @@ function renderAttractions(filter = "All") {
     grid.appendChild(card);
   });
 
+  // Read More toggle
   document.querySelectorAll(".read-more").forEach(button => {
     button.addEventListener("click", () => {
       const card = button.closest(".attraction-card");
@@ -98,13 +101,16 @@ function getCategoryBadge(category) {
   return icons[category] || category;
 }
 
+// Initial render
 renderAttractions();
 
+// Search filter event
+const searchInput = document.getElementById("attractionSearch");
+if (searchInput) {
+  searchInput.addEventListener("input", () => renderAttractions("All"));
+}
 
-
-
-
-/* Itinerary Planner Section form */
+/* Itinerary Planner Section */
 document.getElementById("itinerary-form").addEventListener("submit", function (e) {
   e.preventDefault();
 
@@ -129,7 +135,7 @@ document.getElementById("itinerary-form").addEventListener("submit", function (e
   if (culture) {
     plans.push({
       day: "Day 2",
-      activity: "Visit  Mangueshi Temple",
+      activity: "Visit Mangueshi Temple",
       img: "images/Mangueshi_Temple.jpg"
     });
   }
@@ -154,7 +160,6 @@ document.getElementById("itinerary-form").addEventListener("submit", function (e
       img: "images/Palolem_Beach.jpg"
     });
   }
-  
 
   plans.forEach(plan => {
     output.innerHTML += `
@@ -167,8 +172,6 @@ document.getElementById("itinerary-form").addEventListener("submit", function (e
     `;
   });
 });
-
-
 
 // Lightbox functionality
 const galleryItems = document.querySelectorAll(".gallery-item img");
@@ -187,15 +190,11 @@ lightboxClose.addEventListener("click", () => {
   lightbox.style.display = "none";
 });
 
-// Also close when clicking outside the image
 lightbox.addEventListener("click", (e) => {
   if (e.target !== lightboxImage) {
     lightbox.style.display = "none";
   }
 });
-
-
-
 
 // Contact Form Validation
 document.getElementById("contact-form").addEventListener("submit", function (e) {
@@ -222,6 +221,3 @@ document.getElementById("contact-form").addEventListener("submit", function (e) 
   formMessage.style.color = "green";
   this.reset();
 });
-
-
-
